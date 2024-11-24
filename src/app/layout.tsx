@@ -4,7 +4,10 @@
 import "./globals.css";
 import Image from "next/image";
 import { useEffect, useState } from "react";
-// import Frame1 from "./../assets/Luffy1.png";
+import Frame1 from "./../assets/Luffy1.png";
+import Luffy1 from "./../../public/assets/Luffy1.png";
+import Luffy2 from "./../../public/assets/Luffy2.png";
+import Luffy3 from "./../../public/assets/Luffy3.png";
 
 export default function RootLayout({
 	children,
@@ -12,49 +15,49 @@ export default function RootLayout({
 	children: React.ReactNode;
 }>) {
 	const [renderer, setRenderer] = useState(false);
-	let [counter, setCounter] = useState(0);
-	const [urlParameter, setUrlParameter] = useState("");
+	const [counter, setCounter] = useState(0);
+	const [frame, setFrame] = useState("");
 
-	useEffect(() => {
-		// Reads the pressed Buttons
-		function frameCounter() {
+	function frameCounter() {
+		useEffect(() => {
+			// Reads the pressed Buttons
+
 			if (counter < 3) {
-				setCounter(counter++);
+				const newCount = counter + 1;
+				setCounter(newCount);
 				console.log("counter", counter);
-				// return counter;
 			}
-			console.log("passed if statement", counter);
-			// return counter;
-		}
+			console.log("denied if statement", counter);
+		});
+	}
 
-		const KEY_HANDLERS = {
-			ArrowLeft: () => console.log("You pressed the left Arrow."),
-			ArrowRight: () => console.log("You pressed the right Arrow."),
-		};
+	const KEY_HANDLERS = {
+		ArrowLeft: () => console.log("You pressed the left Arrow."),
+		ArrowRight: () => console.log("You pressed the right Arrow."),
+	};
 
-		function onArrowDown() {
-			document.addEventListener("keydown", (event) => {
-				const handler = KEY_HANDLERS[event.code];
+	function arrowDown() {
+		document.addEventListener("keydown", (event) => {
+			const handler = KEY_HANDLERS[event.code];
 
-				if (handler) {
-					setRenderer(true);
-					frameCounter();
-					console.log("counter", frameCounter());
-					return;
-				}
+			if (handler) {
+				setRenderer(true);
+				frameCounter();
+				console.log("counter", frameCounter());
+				return;
+			}
 
-				console.log("Pressed a key without a handler.");
-			});
-		}
+			console.log("Pressed a key without a handler.");
+		});
+	}
 
-		setUrlParameter(`/assets/Luffy${counter}.png`);
-	}, [counter]);
+	setFrame(`/assets/Luffy${counter}.png`);
 
 	return (
 		<html lang="en">
-			<body onKeyDown={() => onArrowDown()}>
+			<body onKeyDown={() => arrowDown()}>
 				{renderer ? (
-					<Image src={urlParameter} alt="backdrop" width={1200} height={600} />
+					<Image src={frame} alt="backdrop" width={1200} height={600} />
 				) : null}
 
 				{children}
