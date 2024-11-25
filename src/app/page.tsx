@@ -2,8 +2,6 @@
 
 import Image from "next/image";
 import styled from "styled-components";
-// import Frame1 from "../../public/Luffy1.png";
-// import Frame2 from "../../public/Luffy2.png";
 
 export const ImageContainer = styled.div`
     width: 1400px;
@@ -32,40 +30,7 @@ export const ImageContainer = styled.div`
 //   };
 
 export default function Home() {
-	// der counter erhöht sich basierend auf den aktuellen scorll punkt
-	// vielleicht zunächst mit pfeiltasten weiter machen lassen (input ist schwer)
-	// const KEY_HANDLERS = {
-	// 	ArrowLeft: () => console.log("You pressed the left Arrow."),
-	// 	ArrowRight: () => console.log("You pressed the right Arrow."),
-	// };
 
-	// function frameCounter() {
-	// 	let counter = 0;
-	// 	if (counter < 24) {
-	// 		counter += 1;
-	// 	}
-
-	// 	return counter;
-	// }
-
-	// const urlParameter = `../../public/Luffy${frameCounter()}`;
-
-	// function onKeydown() {
-	// 	document.addEventListener("keydown", (event) => {
-	// 		event.preventDefault();
-
-	// 		const handler = KEY_HANDLERS[event.code];
-
-	// 		if (handler) {
-	// 			handler();
-	// 			return;
-	// 		}
-
-	// 		console.log("Pressed a key without a handler.");
-	// 		// return event.key;
-	// 	});
-
-	// }
 	return (
 		<ImageContainer>
 			<Image
