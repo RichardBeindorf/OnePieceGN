@@ -19,50 +19,45 @@ export default function RootLayout({
 	let megaFrameCounter = useRef(0);
 
 	useEffect(() => {
-		// const KEY_HANDLERS = {
-		// 	ArrowLeft: () => console.log("You pressed the left Arrow."),
-		// 	ArrowRight: () => console.log("You pressed the right Arrow."),
-		// };
+
 
 		const handleKeyDown = (event: KeyboardEvent) => {
-			// const handler = KEY_HANDLERS[event.code];
-			
-	
-			
+
 			if (event.code === "ArrowRight") {
-				
-				console.log("EVENT CODE", event.code)
+				console.log(event.code);
 				megaFrameCounter.current = megaFrameCounter.current + 1;
-				console.log("megaFrameCounter", megaFrameCounter)
+				console.log( megaFrameCounter);
+
 				if(megaFrameCounter.current === 16){
 					megaFrameCounter.current = 0;
 
 					//Ich muss den counter über den Umweg erhöhen, um useEffect zu befriedigen und keinen Loop zu erzeugen
 					const nextFrame = counter + 1;
-					setCounter(nextFrame)
+					setCounter(nextFrame);
 					console.log("EVENT FIRED", `./../../public/assets/Luffy${counter}.png`, counter);
-				}} else if (event.code === "ArrowLeft") {
+			}} else if (event.code === "ArrowLeft") {
 
-				megaFrameCounter.current = megaFrameCounter.current - 1;
-				console.log("megaFrameCounter", megaFrameCounter);
-
-				if(megaFrameCounter.current === 8){
+				console.log(event.code);
+				megaFrameCounter.current = megaFrameCounter.current + 1;
+				console.log( megaFrameCounter);
+			
+				if(megaFrameCounter.current === 16){
 					megaFrameCounter.current = 0;
 					//Ich muss den counter über den Umweg erhöhen, um useEffect zu befriedigen und keinen Loop zu erzeugen
-					const nextFrame = counter - 1;
-					setCounter(nextFrame)
-					console.log("EVENT FIRED", `./../../public/assets/Luffy${counter}.png`, counter);
-				}}
+					if(counter >= 1){
+						console.log("changing counter", counter);
+						const nextFrame = counter - 1;
+						console.log("new counter", counter);
+						setCounter(nextFrame);
+						console.log("EVENT FIRED", `./../../public/assets/Luffy${counter}.png`, counter);
+			}}}}
+			console.log("counter", counter);
+		if (renderer && counter < 5) {
 			
-			}
-
-		if (renderer && counter < 3) {
-
 			document.addEventListener("keydown", handleKeyDown);
 			return () => document.removeEventListener("keydown", handleKeyDown);
 			//Rückgabeanweisung für den useEffect
 			}
-			
 		}, [counter, renderer]);
 	
 
