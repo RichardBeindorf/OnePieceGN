@@ -1,15 +1,9 @@
 "use client";
 
-// import type { Metadata } from "next";
 import "./globals.css";
-import Image, { StaticImageData } from "next/image";
+import Image from "next/image";
 import { useEffect, useState } from "react";
-import Frame1 from "/Users/richard/Web-Projekte/OnePiece/Website/onepiece-grafic-novel/public/assets/Luffy1.png";
-import Luffy1 from "./../../public/assets/Luffy1.png";
-import Luffy2 from "./../../public/assets/Luffy2.png";
-import Luffy3 from "./../../public/assets/Luffy3.png";
 import styled from "styled-components";
-// import { EventEmitter } from "stream";
 
 const LuffyFrames = styled(Image)`
 	position: absolute;
@@ -77,7 +71,7 @@ export default function RootLayout({
 		<html lang="en">
 			<body onKeyDown={() => setRenderer(true)}>
 				{counter > 0 ? (
-					<LuffyFrames src={`/assets/Luffy${counter}.png`} alt="backdrop" width={1200} height={600} />
+					<LuffyFrames src={`/assets/Luffy${counter}.png`} alt="backdrop" width={2000} height={935} />
 				) : null}
 
 				{children}
