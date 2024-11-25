@@ -2,7 +2,7 @@
 
 import "./globals.css";
 import Image from "next/image";
-import { useEffect, useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 
 const LuffyFrames = styled(Image)`
@@ -16,9 +16,8 @@ export default function RootLayout({
 }>) {
 	const [renderer, setRenderer] = useState(false);
 	const [counter, setCounter] = useState(0);
-	// const [frame, setFrame] = useState("");
+	let megaFrameCounter = useRef(0);
 
-	let megaFrameCounter = 0
 	useEffect(() => {
 		// const KEY_HANDLERS = {
 		// 	ArrowLeft: () => console.log("You pressed the left Arrow."),
@@ -33,22 +32,22 @@ export default function RootLayout({
 			if (event.code === "ArrowRight") {
 				
 				console.log("EVENT CODE", event.code)
-				megaFrameCounter++;
+				megaFrameCounter.current = megaFrameCounter.current + 1;
 				console.log("megaFrameCounter", megaFrameCounter)
-				if(megaFrameCounter === 16){
-					megaFrameCounter = 0;
+				if(megaFrameCounter.current === 16){
+					megaFrameCounter.current = 0;
 
 					//Ich muss den counter über den Umweg erhöhen, um useEffect zu befriedigen und keinen Loop zu erzeugen
 					const nextFrame = counter + 1;
 					setCounter(nextFrame)
 					console.log("EVENT FIRED", `./../../public/assets/Luffy${counter}.png`, counter);
-				}}
+				}} else if (event.code === "ArrowLeft") {
 
-			if (event.code === "ArrowLeft") {
-				megaFrameCounter++;
-				if(megaFrameCounter === 8){
+				megaFrameCounter.current = megaFrameCounter.current - 1;
+				console.log("megaFrameCounter", megaFrameCounter);
 
-					megaFrameCounter = 0;
+				if(megaFrameCounter.current === 8){
+					megaFrameCounter.current = 0;
 					//Ich muss den counter über den Umweg erhöhen, um useEffect zu befriedigen und keinen Loop zu erzeugen
 					const nextFrame = counter - 1;
 					setCounter(nextFrame)
