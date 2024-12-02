@@ -16,7 +16,7 @@ export default function RootLayout({
 }>) {
 	const [renderer, setRenderer] = useState(false);
 	const [counter, setCounter] = useState(0);
-	let megaFrameCounter = useRef(0);
+	const megaFrameCounter = useRef(0);
 
 	useEffect(() => {
 
@@ -65,7 +65,7 @@ export default function RootLayout({
 		<html lang="en">
 			<body onKeyDown={() => setRenderer(true)}>
 				{counter > 0 ? (
-					<LuffyFrames src={`/assets/Luffy${counter}.png`} alt="backdrop" width={2000} height={935} />
+					<LuffyFrames src={`/assets/Luffy${counter}.png`} alt="backdrop" width={500} height={235} />
 				) : null}
 
 				{children}
