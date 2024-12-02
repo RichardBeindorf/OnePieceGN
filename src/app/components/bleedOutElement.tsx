@@ -1,4 +1,7 @@
+
 import styled from "styled-components"
+
+import Image from "next/image";
 
 const Wrapper = styled.div`
     display: flex;
@@ -19,7 +22,6 @@ const Limiter = styled.div`
     transform: translate(-30px, 10px) rotate(-3deg);
     rotate: calc(10deg);
     position: relative;
-    z-index: 110;
 
     /* &:before {
         content: "";
@@ -53,7 +55,7 @@ const Limiter = styled.div`
         height: 210px;
         width: 10px;
         margin-left: 5px;
-        z-index: 100;
+   
     }
 
 `;
@@ -76,11 +78,14 @@ const Border = styled.div`
     padding: 5px;
     margin: 20px;
     overflow: hidden;
-  
-
-
 `;
 
+export const ImageContainer = styled.div`
+position: relative;
+    width: 400px;
+    height: 200px;
+	overflow: hidden;
+`;
 
 
 
@@ -89,7 +94,15 @@ export default function BleedOutElement (){
         
         <Wrapper>
         <Border>
-            <h5>Hier kommt das Ruffy Intro hin</h5>
+            <ImageContainer>
+                <Image
+                        src={"/assets/background2.png"}
+                        alt="backdrop"
+                        fill={true}
+                        sizes="(max-width: 768px) 100vw"
+                        priority
+                        />
+            </ImageContainer>
         </Border>
         <Limiter/>
         </Wrapper>

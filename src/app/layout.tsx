@@ -7,6 +7,7 @@ import styled from "styled-components";
 
 const LuffyFrames = styled(Image)`
 	position: absolute;
+	z-index: 100;
 `;
 
 export default function RootLayout({
