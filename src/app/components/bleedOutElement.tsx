@@ -7,7 +7,6 @@ const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
     width: fit-content;
-    padding: 10px;
 `;
 
 
@@ -40,20 +39,18 @@ const Limiter = styled.div`
     &:before{
         content: "";
         position: absolute;
-        transform: translate(-25px, 9px) rotate(-10deg);
+        transform: translate(-27px, 4px) rotate(-10deg);
         rotate: calc(10deg);
         border-right: solid 3px #41403E;
         border-top-right-radius: 10px 90px;
 
-
         border-bottom: solid 3px #41403E;
         border-bottom-right-radius: 10px 80px;
 
-
         /* background-image: var(--paperBG); */
         /* background-color: hotpink; */
-        height: 210px;
-        width: 10px;
+        height: 200px;
+        /* width: 10px; */
         margin-left: 5px;
    
     }
@@ -75,7 +72,7 @@ const Border = styled.div`
     /* border-top-right-radius: 15px 300px; */
     border-bottom-right-radius: 225px 15px;
     border-bottom-left-radius:15px 255px;
-    padding: 5px;
+
     margin: 20px;
     overflow: hidden;
 `;

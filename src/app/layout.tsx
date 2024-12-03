@@ -7,7 +7,6 @@ import styled from "styled-components";
 
 const LuffyFrames = styled(Image)`
 	position: absolute;
-	z-index: 100;
 `;
 
 export default function RootLayout({
@@ -66,7 +65,7 @@ export default function RootLayout({
 		<html lang="en">
 			<body onKeyDown={() => setRenderer(true)}>
 				{counter > 0 ? (
-					<LuffyFrames src={`/assets/Luffy${counter}.png`} alt="backdrop" width={500} height={235} />
+					<LuffyFrames src={`/assets/Luffy${counter}.png`} alt="backdrop" width={2000} height={935} />
 				) : null}
 
 				{children}
