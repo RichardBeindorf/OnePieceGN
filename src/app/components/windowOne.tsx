@@ -67,10 +67,10 @@ const LuffyFrames = styled(Image)`
 	z-index: 100;
 `;
 
-export default function WindowOne({ counter }) {
+export default function WindowOne({ counter }: number) {
 	console.log(counter);
 	function callThis() {
-		console.log("changed counter arrived", counter);
+		console.log("changed counter arrived", "wtf", counter);
 		return null;
 	}
 	return (
