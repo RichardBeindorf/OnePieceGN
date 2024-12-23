@@ -17,17 +17,18 @@ const RightSlandBorder = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 400px;
+    height: 300px;
     width: 50px;
     background-image: var(--paperBG);
-    transform: translate(-30px, 10px) rotate(-3deg);
+    transform: translate(-30px, 21px) rotate(-3deg);
     rotate: calc(10deg);
     position: relative;
+    z-index: 3;
 
     &:before{
         content: "";
         position: absolute;
-        transform: translate(-27px, 1px) rotate(-10deg);
+        transform: translate(-29px, 9px) rotate(-10deg);
         rotate: calc(10deg);
 
         border-right: solid 3px #41403E;
@@ -35,13 +36,12 @@ const RightSlandBorder = styled.div`
         border-bottom: solid 3px #41403E;
         border-bottom-right-radius: 10px 80px;
 
-        height: 395px;
+        height: 300px;
         margin-left: 5px;
     }
 `;
 
 const Border = styled.div`
-    box-sizing: border;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -64,24 +64,40 @@ position: relative;
     width: 600px;
     height: 300px;
 	overflow: hidden;
+
+    /* background-image: var(--paperBG); */
+/* 
+    &:after{
+        content: "";
+        background-image: var(--paperBG);
+        border-right: solid 3px #41403E;
+        border-top-right-radius: 10px 90px;
+        border-bottom: solid 3px #41403E;
+        border-bottom-right-radius: 10px 80px;
+
+        height: 300px;
+        margin-left: 5px;
+    } */
 `;
 
 const LuffyFrames = styled(Image)`
 	position: absolute;
-	z-index: 100;
+    z-index: 2;
 `;
 
 export default function WindowOne({ counter }: Counter) {
-	console.log(counter);
-	function callThis() {
-		console.log("changed counter arrived", "wtf", counter);
-		return null;
-	}
-	callThis();
 	return (
 		<Wrapper>
 			<Border>
 				<ImageContainer>
+					{counter > 0 && counter < 4 ? (
+						<LuffyFrames
+							src={`/assets/Luffy${counter}.png`}
+							alt="luffy coming in!"
+							width={600}
+							height={335}
+						/>
+					) : null}
 					<Image
 						src={Backdrop}
 						alt="backdrop"
@@ -90,15 +106,6 @@ export default function WindowOne({ counter }: Counter) {
 						priority
 					/>
 				</ImageContainer>
-				{counter > 0 ? callThis() : null}
-				{counter > 0 && counter < 4 ? (
-					<LuffyFrames
-						src={`/assets/Luffy${counter}.png`}
-						alt="luffy coming in!"
-						width={500}
-						height={235}
-					/>
-				) : null}
 			</Border>
 			<RightSlandBorder />
 		</Wrapper>
