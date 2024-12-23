@@ -1,4 +1,3 @@
-
 // import "./globals.css";
 // import Image from "next/image";
 // import { useEffect, useRef, useState } from "react";
@@ -34,7 +33,7 @@ export default function RootLayout({ children }) {
 	// 			console.log(event.code);
 	// 			megaFrameCounter.current = megaFrameCounter.current + 1;
 	// 			console.log( megaFrameCounter);
-			
+
 	// 			if(megaFrameCounter.current === 16){
 	// 				megaFrameCounter.current = 0;
 	// 				//Ich muss den counter über den Umweg erhöhen, um useEffect zu befriedigen und keinen Loop zu erzeugen
@@ -47,18 +46,17 @@ export default function RootLayout({ children }) {
 	// 		}}}}
 	// 		console.log("counter", counter);
 	// 	if (renderer && counter < 5) {
-			
+
 	// 		document.addEventListener("keydown", handleKeyDown);
 	// 		return () => document.removeEventListener("keydown", handleKeyDown);
 	// 		//Rückgabeanweisung für den useEffect
 	// 		}
 	// 	}, [counter, renderer]);
-	
 
 	return (
 		<html lang="en">
-			<body >
-			{/* onKeyDown={() => setRenderer(true)} */}
+			<body>
+				{/* onKeyDown={() => setRenderer(true)} */}
 				{/* {counter > 0 ? (
 					<LuffyFrames src={`/assets/Luffy${counter}.png`} alt="backdrop" width={2000} height={935} />
 				) : null} */}

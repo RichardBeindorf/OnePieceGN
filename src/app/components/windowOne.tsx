@@ -2,6 +2,10 @@ import styled from "styled-components";
 import Image from "next/image";
 import Backdrop from "./../../../public/assets/Background2.png";
 
+interface Counter {
+	counter: number;
+}
+
 const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
@@ -67,12 +71,13 @@ const LuffyFrames = styled(Image)`
 	z-index: 100;
 `;
 
-export default function WindowOne({ counter }: number) {
+export default function WindowOne({ counter }: Counter) {
 	console.log(counter);
 	function callThis() {
 		console.log("changed counter arrived", "wtf", counter);
 		return null;
 	}
+	callThis();
 	return (
 		<Wrapper>
 			<Border>
@@ -88,7 +93,7 @@ export default function WindowOne({ counter }: number) {
 				{counter > 0 ? callThis() : null}
 				{counter > 0 && counter < 4 ? (
 					<LuffyFrames
-						src={`/assets/Luffy${1}.png`}
+						src={`/assets/Luffy${counter}.png`}
 						alt="luffy coming in!"
 						width={500}
 						height={235}

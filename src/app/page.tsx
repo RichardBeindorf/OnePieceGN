@@ -14,7 +14,7 @@ const Page = styled.main`
 
 export default function Home() {
 	const [renderer, setRenderer] = useState(false);
-	const [counter, setCounter] = useState(0);
+	const [counter, setCounter] = useState<number>(0);
 	const megaFrameCounter = useRef(0);
 
 	useEffect(() => {
@@ -69,7 +69,7 @@ export default function Home() {
 			onKeyDown={() => setRenderer(true)}
 			tabIndex={0}
 		>
-			<WindowOne counter={{ counter }} />
+			<WindowOne counter={counter} />
 		</Page>
 	);
 }
