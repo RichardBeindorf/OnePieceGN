@@ -19,6 +19,7 @@ const RightSlandBorder = styled.div`
     align-items: center;
     height: 300px;
     width: 50px;
+    
     background-image: var(--paperBG);
     transform: translate(-30px, 21px) rotate(-3deg);
     rotate: calc(10deg);
@@ -35,6 +36,7 @@ const RightSlandBorder = styled.div`
         border-top-right-radius: 10px 90px;
         border-bottom: solid 3px #41403E;
         border-bottom-right-radius: 10px 80px;
+        
 
         height: 300px;
         margin-left: 5px;
@@ -48,6 +50,7 @@ const Border = styled.div`
     //Dimensions
     height: 300px;
     width: 600px;
+    border-image: url("/assets/brush");
     border-top: solid 3px #41403E;
     border-left: solid 3px #41403E;
     border-bottom: solid 3px #41403E;

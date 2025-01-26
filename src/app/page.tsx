@@ -4,12 +4,23 @@ import "./globals.css";
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import WindowOne from "./components/windowOne";
+import Image from "next/image";
 
 const Page = styled.main`
 	height: 100vh;
 	width: 100vh;
 
 	&:focus {outline:0 !important;}
+`;
+
+const TestBorder = styled.div`
+
+	width: 200px;
+	/* Use transparent so the background image is visible */
+	border: 10px solid;
+	padding: 20px;
+
+  	background-image: url("/assets/brush.jpg");
 `;
 
 export default function Home() {
@@ -70,6 +81,8 @@ export default function Home() {
 			tabIndex={0}
 		>
 			<WindowOne counter={counter} />
+			<TestBorder>test</TestBorder>
+			<Image src="/assets/brush.jpg" width="100" height="100" alt="test" />
 		</Page>
 	);
 }
