@@ -5,22 +5,15 @@ import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import WindowOne from "./components/windowOne";
 import Image from "next/image";
+import WindowTwo from "./components/WindowTwo";
+import WindowThree from "./components/WindowThree";
+import WindowFour from "./components/WindowFour";
 
 const Page = styled.main`
 	height: 100vh;
 	width: 100vh;
-
+	display: flex;
 	&:focus {outline:0 !important;}
-`;
-
-const TestBorder = styled.div`
-
-	width: 200px;
-	/* Use transparent so the background image is visible */
-	border: 10px solid;
-	padding: 20px;
-
-  	background-image: url("/assets/brush.jpg");
 `;
 
 export default function Home() {
@@ -80,9 +73,14 @@ export default function Home() {
 			onKeyDown={() => setRenderer(true)}
 			tabIndex={0}
 		>
-			<WindowOne counter={counter} />
-			<TestBorder>test</TestBorder>
-			<Image src="/assets/brush.jpg" width="100" height="100" alt="test" />
+			<div>
+				<WindowOne counter={counter} />
+				<WindowTwo counter={counter} />
+			</div>
+			<div>
+				<WindowThree counter={counter} />
+				<WindowFour counter={counter} />
+			</div>
 		</Page>
 	);
 }

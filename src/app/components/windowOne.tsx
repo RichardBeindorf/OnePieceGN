@@ -2,17 +2,17 @@ import styled from "styled-components";
 import Image from "next/image";
 import Backdrop from "./../../../public/assets/Background2.png";
 
-interface Counter {
+export interface Counter {
 	counter: number;
 }
 
-const Wrapper = styled.div`
+export const Wrapper = styled.div`
     display: flex;
     flex-direction: row;
     width: fit-content;
 `;
 
-const RightSlandBorder = styled.div`
+export const RightSlandBorder = styled.div`
     //Action scene border
     display: flex;
     justify-content: center;
@@ -37,20 +37,18 @@ const RightSlandBorder = styled.div`
         border-bottom: solid 3px #41403E;
         border-bottom-right-radius: 10px 80px;
         
-
         height: 300px;
         margin-left: 5px;
     }
 `;
 
-const Border = styled.div`
+export const Border = styled.div`
     display: flex;
     justify-content: center;
     align-items: center;
     //Dimensions
     height: 300px;
     width: 600px;
-    border-image: url("/assets/brush");
     border-top: solid 3px #41403E;
     border-left: solid 3px #41403E;
     border-bottom: solid 3px #41403E;
@@ -83,7 +81,7 @@ position: relative;
     } */
 `;
 
-const LuffyFrames = styled(Image)`
+export const LuffyFrames = styled(Image)`
 	position: absolute;
     z-index: 2;
 `;
