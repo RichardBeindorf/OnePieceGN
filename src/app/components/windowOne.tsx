@@ -7,6 +7,7 @@ export interface Counter {
 }
 
 export const Wrapper = styled.div`
+    margin-left: 30px;
     display: flex;
     flex-direction: row;
     width: fit-content;

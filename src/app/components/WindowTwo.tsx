@@ -1,24 +1,53 @@
 import styled from "styled-components";
-import { Border, LuffyFrames, RightSlandBorder, Wrapper } from "./windowOne";
+import { Border, LuffyFrames, Wrapper } from "./windowOne";
 import Backdrop from "./../../../public/assets/Background2.png";
 import type { Counter } from "./windowOne";
-import Image from "next/image";
+// import Image from "next/image";
+
+const SecondWrapper = styled(Wrapper)`
+    margin-right: 100px;
+`;
 
 const FrameTwo = styled(Border)`
     border-left: none;
+    border-right: solid 3px #41403E;
+    border-top-right-radius: 50px 5px;
+    border-top-left-radius: 155px 15px;
 `;
 
-const LeftSlandBorder = styled(RightSlandBorder)`
+const LeftSlandBorder = styled.div`
+    //Action scene border
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 310px;
+    width: 65px;
+    
+    background-image: var(--paperBG);
+    transform: translate(55px, 5px) rotate(-3deg);
+    rotate: calc(10deg);
 
-&:before{
-        transform: translate(60px, -5px) rotate(-10deg);
+    &:before{
+        content: "";
+        position: absolute;
+        /* transform: translate(-29px, 9px) rotate(-10deg); */
+        transform: translate(34px, -10px) rotate(-10deg);
+        rotate: calc(10deg);
+        
+
+        border-right: solid 3px #41403E;
+        border-top-right-radius: 10px 90px;
+        border-bottom: solid 3px #41403E;
+        border-bottom-right-radius: 10px 80px;
+        
+        height: 300px;
     }
-
+    
 `;
 
 export default function WindowTwo({ counter }: Counter) {
 	return (
-		<Wrapper>
+		<SecondWrapper>
 			<LeftSlandBorder />
 			<FrameTwo
 				src={Backdrop}
@@ -43,6 +72,6 @@ export default function WindowTwo({ counter }: Counter) {
 					priority
 				/> */}
 			</FrameTwo>
-		</Wrapper>
+		</SecondWrapper>
 	);
 }

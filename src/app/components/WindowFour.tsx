@@ -4,23 +4,14 @@ import Backdrop from "./../../../public/assets/Background2.png";
 import type { Counter } from "./windowOne";
 import Image from "next/image";
 
-const FrameTwo = styled(Border)`
-    border-left: none;
-`;
-
-const LeftSlandBorder = styled(RightSlandBorder)`
-
-&:before{
-        transform: translate(60px, -5px) rotate(-10deg);
-    }
-
+const FrameFour = styled(Border)`
+    border-right: solid black 2px;
 `;
 
 export default function WindowFour({ counter }: Counter) {
 	return (
 		<Wrapper>
-			<LeftSlandBorder />
-			<FrameTwo
+			<FrameFour
 				src={Backdrop}
 				alt="backdrop"
 				fill={true}
@@ -42,7 +33,7 @@ export default function WindowFour({ counter }: Counter) {
 					sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
 					priority
 				/> */}
-			</FrameTwo>
+			</FrameFour>
 		</Wrapper>
 	);
 }

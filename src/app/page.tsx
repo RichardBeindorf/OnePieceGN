@@ -4,15 +4,16 @@ import "./globals.css";
 import { useEffect, useRef, useState } from "react";
 import styled from "styled-components";
 import WindowOne from "./components/windowOne";
-import Image from "next/image";
 import WindowTwo from "./components/WindowTwo";
 import WindowThree from "./components/WindowThree";
 import WindowFour from "./components/WindowFour";
 
 const Page = styled.main`
+	display: grid;
+	grid-template-columns: 1fr 1fr;
+	grid-template-rows: 1fr 1fr 1fr;
 	height: 100vh;
 	width: 100vh;
-	display: flex;
 	&:focus {outline:0 !important;}
 `;
 
@@ -68,19 +69,12 @@ export default function Home() {
 	}, [counter, renderer]);
 
 	return (
-		<Page
-			className="firstWindow"
-			onKeyDown={() => setRenderer(true)}
-			tabIndex={0}
-		>
-			<div>
-				<WindowOne counter={counter} />
-				<WindowTwo counter={counter} />
-			</div>
-			<div>
-				<WindowThree counter={counter} />
-				<WindowFour counter={counter} />
-			</div>
+		<Page onKeyDown={() => setRenderer(true)} tabIndex={0}>
+			<WindowOne counter={counter} />
+			<WindowTwo counter={counter} />
+
+			<WindowThree counter={counter} />
+			<WindowFour counter={counter} />
 		</Page>
 	);
 }
